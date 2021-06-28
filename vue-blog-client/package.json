@@ -1,15 +1,21 @@
 {
-  "name": "vue-blog-client",
+  "name": "myfirstvue",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "test:Loading":"vue serve ./src/components/Loading/test.vue"
   },
   "dependencies": {
+    "axios": "^0.21.1",
     "core-js": "^3.6.5",
-    "vue": "^2.6.11"
+    "less": "^4.1.1",
+    "less-loader": "5.0.0",
+    "mockjs": "^1.1.0",
+    "vue": "^2.6.11",
+    "vue-router": "^3.5.1"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.5.0",
