@@ -6,13 +6,15 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "test:Loading":"vue serve ./src/components/Loading/test.vue"
+    "test:Loading": "vue serve ./src/components/Loading/test.vue"
   },
   "dependencies": {
     "axios": "^0.21.1",
     "core-js": "^3.6.5",
+    "element-ui": "^2.15.2",
     "less": "^4.1.1",
     "less-loader": "5.0.0",
+    "mavon-editor": "^2.9.1",
     "mockjs": "^1.1.0",
     "vue": "^2.6.11",
     "vue-router": "^3.5.1"
