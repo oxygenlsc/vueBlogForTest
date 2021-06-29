@@ -40,7 +40,7 @@ export default {
                 {
                     name:'About',
                     link:'/about',
-                    title:"关于我",
+                    title:"友链",
                     icon:'about',
                     exact:true,
                 },
