@@ -22,14 +22,14 @@ const codeMessage = {
     504: '网关超时。',
 };
 axios.interceptors.response.use(function (resp) {
-    if (resp.data.code !== 0) {
+    if (!resp.data.success) {
         ShowMessage({
             content: resp.data.msg,
             type: 'error'
         })
         return null
     }
-    return resp.data.data
+    return resp.data
 }, (error) => {
     if (error && error.response) {
         switch (error.response.status) {

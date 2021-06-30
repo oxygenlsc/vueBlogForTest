@@ -1,16 +1,16 @@
 <template>
   <div class="item-container">
     <div class="title">
-        <RouterLink to='/blog/detail'>{{ itemdata.title }}</RouterLink>
+        <RouterLink to='/blog/detail'>{{ itemdata.Btitle }}</RouterLink>
         
     </div>
     <div class="des">
-      <div class="time"> <i class="el-icon-date"></i> 2020年12月1日</div>
-      <div class="tag"><i class="el-icon-collection-tag"></i> JS</div>
-      <div class="hot"><i class="el-icon-sunny"></i> 28</div>
-      <div class="goof"><i class="el-icon-star-on"></i> 55</div>
+      <div class="time"> <i class="el-icon-date"></i> {{ itemdata.createdAt}}</div>
+      <div class="tag"><i class="el-icon-collection-tag"></i> {{itemdata.Btags}}</div>
+      <div class="hot"><i class="el-icon-sunny"></i> {{itemdata.Bview}}</div>
+      <div class="goof"><i class="el-icon-star-on"></i> {{itemdata.Blike}}</div>
     </div>
-    <div class="artic-content">sasdadd</div>
+    <div class="artic-content">{{itemdata.Bdesc}}</div>
   </div>
 </template>
 

@@ -14,7 +14,7 @@ export default {
     MainContainer,
   },
   mounted() {
-    console.log(this.$route);
+    // console.log(this.$route);
   },
 };
 </script>

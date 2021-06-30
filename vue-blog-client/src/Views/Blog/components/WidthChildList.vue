@@ -4,34 +4,27 @@
               0,
               255,
             )},${getRandom(0, 255)})`, fontSize: `${getRandom(20, 30)}px` }"
-     v-for="(item,i) in mockList" :key="i">{{item.title}}</span>
+     v-for="(item,i) in mockList" :key="i">{{item.Tag}}</span>
 
   </div>
 </template>
 
 <script>
 import {getRandom} from '../../../utils/index'
+import blog from '../../../api/blog'
 export default {
     data(){
         return {
-            mockList:[
-            {
-                title:'JS',
-                des:'dksksksksk'
-            },
-            {
-                title:'TS语起源',
-                des:'dksksksksk'
-            },
-             {
-                title:'ts',
-                des:'dksksksksk'
-            }
-            ]
+            mockList:[]
         }
     },
     methods:{
         getRandom
+    },
+    async created(){
+        const {getTagList} = blog
+        const {data} = await getTagList();
+        this.mockList = data;
     }
 }
 </script>

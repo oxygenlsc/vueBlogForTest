@@ -10,6 +10,7 @@ const BlogMethods = {
   getUpdateBlogDetail: `${API}/app/blog/getBlogDetail`, //修改页面的回显
   updateBlog: `POST ${API}/app/blog/updateBlog`,
   updateBlike: `${API}/app/blog/BlikeBlog`,
+  getTagList: `${API}/app/tag/selectAllTag`,
 };
 const APIFunction = {};
 

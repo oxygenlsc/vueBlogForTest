@@ -1,8 +1,6 @@
 import request from '../utils/request';
 
 export default function gen(params) {
-  console.log(params);
-
   let url = params
   let method = 'GET'
   const paramsArray = params.split(' ')
