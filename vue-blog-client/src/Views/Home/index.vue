@@ -37,7 +37,7 @@
 </template>
 
 <script>
-import { getBanner } from "../../api/banner";
+import apis from "../../api/banner";
 import ShowMsgItem from "./ShowMsgItem";
 import Icon from "../../components/Icon";
 import fetchData from '@/mixins/fetchData'
@@ -83,14 +83,9 @@ export default {
       this.containerHeight = this.$refs.home.clientHeight;
     },
     async fetchData(){
-      return await getBanner()
+      return await apis.getBanner()
     }
   },
-  // async created() {
-  //   this.banners =  await getBanner();
-  //   this.isLoading = false;
-  // },
-
   mounted() {
     //直接操作dom就要在这个里面操作了
     this.containerHeight = this.$refs.home.clientHeight;

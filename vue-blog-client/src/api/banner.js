@@ -1,6 +1,14 @@
-// fetch('http://oxygen.cool:9999/app/blog/selectBlogByPage?page=1&limit=10').then(r=>r.json()).then(data=>{console.log(data)});
-import request from './request'
-export async function getBanner(){
-  const resp =  await request.get('/api/banner')
-  return resp
+
+import gen from './index';
+import { API } from './commWord';
+
+const BlogMethods = {
+  getBanner: `${API}/banner`, 
+};
+const APIFunction = {};
+
+for (const key in BlogMethods) {
+  APIFunction[key] = gen(BlogMethods[key]);
 }
+console.log(APIFunction,'APIFunction');
+export default APIFunction;

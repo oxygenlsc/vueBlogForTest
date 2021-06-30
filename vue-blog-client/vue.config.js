@@ -1,6 +1,12 @@
 module.exports = {
-    devServer:{
-
-    },
-    publicPath:'/',//默认是/
-}
+    devServer: {
+        proxy: {
+            '/api':{
+                target: 'http://localhost:9999',
+                changeOrigin: true,
+                pathRewrite: { '^/api': '' },
+              },
+        }
+        },
+        publicPath: '/',//默认是/
+    }
