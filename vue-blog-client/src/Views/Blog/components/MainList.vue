@@ -29,7 +29,7 @@ export default {
             if(data.length==0){
                 this.islastPage=true
             }
-            const newData = [...data ,...this.blogList];
+            const newData = [...this.blogList,...data];
             this.blogList = newData
             this.isLoading = false
         },

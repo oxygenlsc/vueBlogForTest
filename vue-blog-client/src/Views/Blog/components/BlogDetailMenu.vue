@@ -1,41 +1,64 @@
 <template>
   <div class="blog-detail-menu-container">
     <div class="article-des-box">
-      <div class="artic-title"><i class="el-icon-pear"></i> 标题：JS基础</div>
-      <div class="author"><i class="el-icon-user"></i> 作者：oxygen</div>
-      <div class="fire"><i class="el-icon-sunny"></i> 阅读量：30</div>
-      <div class="good"><i class="el-icon-star-on"></i> 获得点赞：50</div>
+      <div class="artic-title"><i class="el-icon-pear"></i> 标题：{{this.$route.query.title}}</div>
+      <div class="author"><i class="el-icon-user"></i> 作者：{{blogDetail.Bauthor}}</div>
+      <div class="fire"><i class="el-icon-sunny"></i> 阅读量：{{blogDetail.Bview}}</div>
+      <div class="good"><i class="el-icon-star-on"></i> 获得点赞：{{blogDetail.Blike}}</div>
     </div>
     <div class="menu-list-box">
       <h1>文章目录</h1>
       <ul class="list-box">
-        <li>第一个点点滴滴都是地对地导弹的</li>
-        <li>第一个</li>
-        <li>第一个</li>
-        <li>第一个</li>
-        <li>第一个</li>
-        <li>第一个</li>
-        <li>第一个</li>
-        <li>第一个</li>
-        <li>第一个</li>
-        <li>第一个</li>
-        <li>第一个</li>
-        <li>第一个</li>
-        <li>第一个</li>
-        <li>第一个</li>
-        <li>第一个</li>
-        <li>第一个</li>
-        <li>第一个</li>
-        <li>第一个</li>
-        <li>第一个</li>
-        <li>第一个</li>
+        <li v-for='(el) in MenuList' :key='el'>{{el}}</li>
       </ul>
     </div>
   </div>
 </template>
 
 <script>
-export default {};
+export default {
+   props:{
+      blogDetail:{tyep:Object,require:true}
+    },
+    methods:{
+      getAList(){
+         this.$nextTick(()=>{
+           let data =  document.querySelectorAll('h1>a');
+           console.log(data,'data')
+        })
+      },
+      getList(str, fstr){
+            if (!str) {
+            return ['nothing'];
+          }
+          let dataArr= [];
+          str.split('#').forEach(el => {
+             el.split('\n').forEach(item => {
+              if (item.includes(fstr)) {
+                item = item.replace(fstr, '');
+                dataArr.push(item?.trim());
+              }
+            });
+          });
+
+          if (!dataArr) {
+            return [];
+          }
+          return dataArr;
+              }
+    },
+    computed:{
+      MenuList(){
+        return this.getList(this.blogDetail.Bcontent,'~~')
+      }
+    },
+    mounted(){
+    //  this.getAList()
+    
+    
+    }
+     
+};
 </script>
 
 <style lang='less' scoped>

@@ -27,7 +27,7 @@
         </p>
       </header>
       <footer class="input">
-        <SubmitLink></SubmitLink>
+        <SubmitLink @handleSubmit='handleSubmit'></SubmitLink>
       </footer>
     </div>
   </div>
@@ -35,19 +35,14 @@
 
 <script>
 import LinkItem from "./components/LinkItem.vue";
-import SubmitLink from './components/SubmitLink.vue'
+import SubmitLink from './components/SubmitLink.vue';
 import { getRandom } from "../../utils/index.js";
+import friendLink from '../../api/friendLink.js';
+import ShowMessage from '../..//utils/showMessage'
 export default {
   data() {
     return {
-      linkarr: [
-        { linkTitle: "kkkkksss", des: "sdasdda" },
-        { linkTitle: "洒洒水", des: "滴滴答答" },
-        { linkTitle: "上上上", des: "啊阿萨大多数" },
-        { linkTitle: "kkkkksss", des: "sdasdda" },
-        { linkTitle: "洒洒水", des: "滴滴答答" },
-        { linkTitle: "上上上", des: "啊阿萨大多数" },
-      ],
+      linkarr: [],
     };
   },
   components: {
@@ -56,7 +51,29 @@ export default {
   },
   methods: {
     getRandom,
+   async handleSubmit(formdata){
+      const {addFriendLink} = friendLink;
+      const jsonData = JSON.stringify(formdata);
+      const {msg,success}=await addFriendLink({jsonData})
+      if(success){
+        ShowMessage({
+          type:'success',
+          content:msg
+        })
+      }else{
+         ShowMessage({
+          type:'error',
+          content:msg
+        })
+      }
+
+    }
   },
+async  created(){
+    const {getAllFriendLink} = friendLink
+    const {data} = await getAllFriendLink('');
+    this.linkarr = data
+  }
 };
 </script>
 

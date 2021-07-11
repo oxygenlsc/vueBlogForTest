@@ -8,12 +8,12 @@
       }"
     >
       <div class="link-title">
-        <img src='https://favicon.link/' alt="" />
-        <a href='' target="black">
-          {{data.linkTitle}}
+        <img :src='"https://favicon.link/"+data.Linkurl' alt="" />
+        <a :href='data.Linkurl' target="black">
+          {{data.Linkname}}
         </a>
       </div>
-      <div class="link-des">{{data.des}}</div>
+      <div class="link-des">{{data.Webdesc}}</div>
     </div>
 </template>
 

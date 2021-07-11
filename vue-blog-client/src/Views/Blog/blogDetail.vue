@@ -1,18 +1,38 @@
 <template>
   <div class="blog-detail-container">
-    <BlogDetailMain />
-    <BlogDetailMenu />
+    <BlogDetailMain :blogDetail='blogDetailObj' />
+    <BlogDetailMenu :blogDetail='blogDetailObj' />
   </div>
 </template>
 
 <script>
 import BlogDetailMain from "./components/BlogDetailMain.vue";
 import BlogDetailMenu from "./components/BlogDetailMenu.vue";
+import blog from '../../api/blog'
 export default {
   components: {
     BlogDetailMain,
     BlogDetailMenu,
   },
+  data(){
+    return{
+        blogDetailObj:{}
+    }
+  },
+ async created(){
+        const {getBlogDetail} = blog
+        const payload = {
+          type:'id',
+          id:this.$route.query.id
+        }
+        const {data} = await getBlogDetail(payload);
+        this.blogDetailObj = data;
+  },
+  mounted(){
+    console.log(123)
+    console.log(this.$route);
+    // selectBlogByType?type=id&id=1
+  }
 };
 </script>
 

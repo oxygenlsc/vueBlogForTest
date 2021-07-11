@@ -73,15 +73,14 @@ export default {
 <style lang='less' scoped>
   .drawer-conteiner{
     width: 100%;
-    // padding: 0 20px;
     height: 100%;
     text-align: left;
     background-color: #f4f4f4;
     overflow: auto;
     .drawer-box{
-      width: 1150px;
+      min-width: 1150px;
       margin: 0 auto;
-
+      padding-left:40px
     }
   }
 </style>

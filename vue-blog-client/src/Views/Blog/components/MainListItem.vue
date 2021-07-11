@@ -1,8 +1,7 @@
 <template>
   <div class="item-container">
     <div class="title">
-        <RouterLink to='/blog/detail'>{{ itemdata.Btitle }}</RouterLink>
-        
+        <RouterLink :to="{path:`/blog/detail`,query:{id:itemdata.id,title:itemdata.Btitle}}">{{ itemdata.Btitle }}</RouterLink>
     </div>
     <div class="des">
       <div class="time"> <i class="el-icon-date"></i> {{ itemdata.createdAt}}</div>
